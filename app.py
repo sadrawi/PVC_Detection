@@ -8,6 +8,9 @@ import os
 import requests
 # Load YOLOv8 segmentation model
 
+
+
+image = Image.open('i3LUniversity.png')
 model_path = "best_arrhythmia.pt"
 
 if not os.path.exists(model_path):
