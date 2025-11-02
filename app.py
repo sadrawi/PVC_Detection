@@ -78,7 +78,7 @@ if uploaded_file:
                                         font_scale, 
                                         font_thickness)[0]
             text_x = x1
-            text_y = max(y1 - 10, text_size[1] + 10)
+            text_y = max(y1 - 5, text_size[1] + 5)
 
             cv2.putText(
                 img,
