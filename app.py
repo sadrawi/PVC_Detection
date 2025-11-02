@@ -7,6 +7,10 @@ import tempfile
 import os
 import requests
 # Load YOLOv8 segmentation model
+from ultralytics.utils.plotting import colors
+
+# Change default color palette globally
+# colors([255, 128, 0])  # orange
 
 st.set_page_config(
     page_title="i3L AI System",
@@ -36,8 +40,6 @@ model = YOLO(model_path)
 
 model.overrides["colors"] = [
     (255, 0, 0),     # Red for class 0
-    (0, 255, 0),     # Green for class 1
-    (0, 0, 255)      # Blue for class 2
 ]
 
 uploaded_file = st.file_uploader("Upload an Image", 
