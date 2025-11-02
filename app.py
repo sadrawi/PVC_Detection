@@ -64,7 +64,7 @@ if uploaded_file:
         font_scale = 0.5      # 🔠 change this for font size
         font_thickness = 1     # line thickness of text
         box_thickness = 1      # line thickness of box
-        color = (245, 73, 39)  # (B, G, R): yellow
+        color = (39, 42, 245)  # (B, G, R): yellow
         # -------------------------------
 
         for (x1, y1, x2, y2) in boxes:
