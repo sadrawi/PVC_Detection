@@ -62,8 +62,8 @@ if uploaded_file:
 
         # ---- Adjustable parameters ----
         font_scale = 0.5      # 🔠 change this for font size
-        font_thickness = 2     # line thickness of text
-        box_thickness = 4      # line thickness of box
+        font_thickness = 0.5     # line thickness of text
+        box_thickness = 1      # line thickness of box
         color = (245, 73, 39)  # (B, G, R): yellow
         # -------------------------------
 
