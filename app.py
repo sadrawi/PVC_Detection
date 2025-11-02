@@ -69,11 +69,14 @@ if uploaded_file:
 
         for (x1, y1, x2, y2) in boxes:
             # Draw rectangle
-            cv2.rectangle(img, (x1, y1), (x2, y2), color, box_thickness)
+            cv2.rectangle(img, (x1, y1), (x2, y2), 
+                          color, box_thickness)
 
             # Put text (class label)
-            text = names[0]  # single class
-            text_size = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, font_scale, font_thickness)[0]
+            text = names[5]  # single class
+            text_size = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 
+                                        font_scale, 
+                                        font_thickness)[0]
             text_x = x1
             text_y = max(y1 - 10, text_size[1] + 10)
 
