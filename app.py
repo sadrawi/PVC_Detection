@@ -38,9 +38,7 @@ if not os.path.exists(model_path):
 
 model = YOLO(model_path)
 
-model.overrides["colors"] = [
-    (255, 0, 0),     # Red for class 0
-]
+
 
 uploaded_file = st.file_uploader("Upload an Image", 
     type=['png', 'jpg', 'jpeg'])
@@ -57,6 +55,9 @@ if uploaded_file:
 
         # Run prediction
         results = model.predict(img_np, conf=0.5)[0]
+        model.overrides["colors"] = [
+            (255, 0, 0),     # Red for class 0
+        ]
 
         # Visualize the mask overlay
         seg_img = results.plot(labels=False, 
