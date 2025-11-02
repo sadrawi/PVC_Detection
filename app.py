@@ -14,7 +14,7 @@ from ultralytics.utils.plotting import colors
 
 st.set_page_config(
     page_title="i3L AI-Based PVC detection System",
-    layout="wide",
+    layout="centered",
     initial_sidebar_state="auto"
 )
 
