@@ -60,16 +60,17 @@ if uploaded_file:
         boxes = results.boxes.xyxy.cpu().numpy().astype(int)
         names = model.names
 
-        st.write(names)
+        # st.write(names)
 
         for (x1, y1, x2, y2) in boxes:
             color = (245, 73, 39)  # yellow
             cv2.rectangle(img, (x1, y1), (x2, y2), color, 1)
             cv2.putText(img,"PVC" , (x1, y1 - 10),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.9, 
-                        [245, 73, 39], 2)
+                        [245, 73, 39], 1)
 
-        st.image(img, caption="Fixed color (manual draw)", use_container_width=True)
+        st.image(img, caption="Fixed color (manual draw)", 
+                 use_container_width=True)
 
         # # Visualize the mask overlay
         # seg_img = results.plot(labels=False, 
