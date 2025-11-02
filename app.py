@@ -55,17 +55,26 @@ if uploaded_file:
 
         # Run prediction
         results = model.predict(img_np, conf=0.5)[0]
-        model.overrides["colors"] = [
-            (255, 0, 0),     # Red for class 0
-        ]
 
-        # Visualize the mask overlay
-        seg_img = results.plot(labels=False, 
-                               conf=False)  # returns a numpy array with the segmentation mask overlaid
+        img = img_np.copy()
+        boxes = results.boxes.xyxy.cpu().numpy().astype(int)
+        names = model.names
 
-        # Show result
-        st.image(seg_img, 
-            caption="Detection Result", 
-            use_container_width=True)
+        for (x1, y1, x2, y2) in boxes:
+            color = (0, 255, 255)  # yellow
+            cv2.rectangle(img, (x1, y1), (x2, y2), color, 4)
+            cv2.putText(img, names[0], (x1, y1 - 10),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.9, color, 2)
+
+        st.image(img, caption="Fixed color (manual draw)", use_container_width=True)
+
+        # # Visualize the mask overlay
+        # seg_img = results.plot(labels=False, 
+        #                        conf=False)  # returns a numpy array with the segmentation mask overlaid
+
+        # # Show result
+        # st.image(seg_img, 
+        #     caption="Detection Result", 
+        #     use_container_width=True)
 
 
