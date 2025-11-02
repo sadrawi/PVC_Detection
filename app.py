@@ -34,9 +34,6 @@ if not os.path.exists(model_path):
 
 model = YOLO(model_path)
 
-# Streamlit UI
-# st.title("i3L University PVC Detection")
-
 uploaded_file = st.file_uploader("Upload an Image", 
     type=['png', 'jpg', 'jpeg'])
 
@@ -54,7 +51,8 @@ if uploaded_file:
         results = model.predict(img_np, conf=0.5)[0]
 
         # Visualize the mask overlay
-        seg_img = results.plot()  # returns a numpy array with the segmentation mask overlaid
+        seg_img = results.plot(labels=True, 
+                               conf=False)  # returns a numpy array with the segmentation mask overlaid
 
         # Show result
         st.image(seg_img, 
