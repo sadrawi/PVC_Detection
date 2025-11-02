@@ -62,7 +62,7 @@ if uploaded_file:
 
         # ---- Adjustable parameters ----
         font_scale = 0.5      # 🔠 change this for font size
-        font_thickness = 2     # line thickness of text
+        font_thickness = 1     # line thickness of text
         box_thickness = 1      # line thickness of box
         color = (245, 73, 39)  # (B, G, R): yellow
         # -------------------------------
@@ -77,7 +77,7 @@ if uploaded_file:
             text_size = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 
                                         font_scale, 
                                         font_thickness)[0]
-            text_x = x1
+            text_x = x1 + 1
             text_y = max(y1 - 5, text_size[1] + 5)
 
             cv2.putText(
