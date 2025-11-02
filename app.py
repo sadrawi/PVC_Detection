@@ -18,7 +18,7 @@ if not os.path.exists(model_path):
 model = YOLO(model_path)
 
 # Streamlit UI
-st.title("i3L University PVC Detection System 00")
+st.title("i3L University PVC Detection System")
 
 uploaded_file = st.file_uploader("Upload an Image", 
     type=['png', 'jpg', 'jpeg'])
