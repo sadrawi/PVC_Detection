@@ -60,25 +60,34 @@ if uploaded_file:
         boxes = results.boxes.xyxy.cpu().numpy().astype(int)
         names = model.names
 
-        # st.write(names)
+        # ---- Adjustable parameters ----
+        font_scale = 0.5      # 🔠 change this for font size
+        font_thickness = 2     # line thickness of text
+        box_thickness = 4      # line thickness of box
+        color = (245, 73, 39)  # (B, G, R): yellow
+        # -------------------------------
 
         for (x1, y1, x2, y2) in boxes:
-            color = (245, 73, 39)  # yellow
-            cv2.rectangle(img, (x1, y1), (x2, y2), color, 1)
-            cv2.putText(img,"PVC" , (x1, y1 - 10),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.9, 
-                        [245, 73, 39], 1)
+            # Draw rectangle
+            cv2.rectangle(img, (x1, y1), (x2, y2), color, box_thickness)
 
-        st.image(img, caption="Fixed color (manual draw)", 
-                 use_container_width=True)
+            # Put text (class label)
+            text = names[0]  # single class
+            text_size = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, font_scale, font_thickness)[0]
+            text_x = x1
+            text_y = max(y1 - 10, text_size[1] + 10)
 
-        # # Visualize the mask overlay
-        # seg_img = results.plot(labels=False, 
-        #                        conf=False)  # returns a numpy array with the segmentation mask overlaid
+            cv2.putText(
+                img,
+                text,
+                (text_x, text_y),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                font_scale,
+                color,
+                font_thickness,
+                cv2.LINE_AA
+            )
 
-        # # Show result
-        # st.image(seg_img, 
-        #     caption="Detection Result", 
-        #     use_container_width=True)
+        st.image(img, caption="Custom Font Size + Box", use_container_width=True)
 
 
