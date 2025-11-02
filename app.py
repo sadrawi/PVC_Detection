@@ -51,7 +51,7 @@ if uploaded_file:
         results = model.predict(img_np, conf=0.5)[0]
 
         # Visualize the mask overlay
-        seg_img = results.plot(labels=True, 
+        seg_img = results.plot(labels=False, 
                                conf=False)  # returns a numpy array with the segmentation mask overlaid
 
         # Show result
