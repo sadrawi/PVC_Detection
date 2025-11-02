@@ -63,10 +63,11 @@ if uploaded_file:
         st.write(names)
 
         for (x1, y1, x2, y2) in boxes:
-            color = (0, 255, 255)  # yellow
-            cv2.rectangle(img, (x1, y1), (x2, y2), color, 2)
+            color = (245, 73, 39)  # yellow
+            cv2.rectangle(img, (x1, y1), (x2, y2), color, 1)
             cv2.putText(img,"PVC" , (x1, y1 - 10),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.9, [255,255,255], 2)
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.9, 
+                        [245, 73, 39], 2)
 
         st.image(img, caption="Fixed color (manual draw)", use_container_width=True)
 
