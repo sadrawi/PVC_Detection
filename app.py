@@ -34,6 +34,12 @@ if not os.path.exists(model_path):
 
 model = YOLO(model_path)
 
+model.overrides["colors"] = [
+    (255, 0, 0),     # Red for class 0
+    (0, 255, 0),     # Green for class 1
+    (0, 0, 255)      # Blue for class 2
+]
+
 uploaded_file = st.file_uploader("Upload an Image", 
     type=['png', 'jpg', 'jpeg'])
 
