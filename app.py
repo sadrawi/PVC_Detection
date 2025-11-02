@@ -61,8 +61,8 @@ if uploaded_file:
         names = model.names
 
         # ---- Adjustable parameters ----
-        font_scale = 0.5      # 🔠 change this for font size
-        font_thickness = 1     # line thickness of text
+        font_scale = 0.1      # 🔠 change this for font size
+        font_thickness = 2     # line thickness of text
         box_thickness = 1      # line thickness of box
         color = (245, 73, 39)  # (B, G, R): yellow
         # -------------------------------
