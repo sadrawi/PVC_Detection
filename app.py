@@ -13,7 +13,7 @@ from ultralytics.utils.plotting import colors
 # colors([255, 128, 0])  # orange
 
 st.set_page_config(
-    page_title="i3L AI System",
+    page_title="i3L AI-Based PVC detection System",
     layout="wide",
     initial_sidebar_state="auto"
 )
