@@ -21,7 +21,7 @@ with col2:
 
 
 st.markdown(
-    "<h1 style='text-align: center;'>i3L University PVC Detection</h1>",
+    "<h1 style='text-align: center;'>PVC Detection</h1>",
     unsafe_allow_html=True
 )
 
