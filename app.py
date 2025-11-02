@@ -69,8 +69,8 @@ if uploaded_file:
 
         for (x1, y1, x2, y2) in boxes:
             # Draw rectangle
-            # cv2.rectangle(img, (x1, y1), (x2, y2), 
-            #               color, box_thickness)
+            cv2.rectangle(img, (x1, y1), (x2, y2), 
+                          color, box_thickness)
 
             # Put text (class label)
             text = "PVC"  # single class
