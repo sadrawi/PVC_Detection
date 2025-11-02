@@ -73,7 +73,7 @@ if uploaded_file:
                           color, box_thickness)
 
             # Put text (class label)
-            text = names[5]  # single class
+            text = "PVC"  # single class
             text_size = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 
                                         font_scale, 
                                         font_thickness)[0]
